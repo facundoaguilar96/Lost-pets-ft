@@ -127,6 +127,7 @@ export class reportPet extends HTMLElement {
         <button class="button">enviar</button>
       </form>
       <img class="profile-picture" width="5000px" />
+      <div class="cancel-container"><button class="cancel-button">cancelar</button></div>
     </div>
   
         `;
@@ -200,6 +201,22 @@ export class reportPet extends HTMLElement {
       margin-top: 24px;
       border-radius: 4px;
       background-color: #FF9DF5;
+      height: 50px;
+      width: 100%;
+      max-width: 335px;
+  }
+  .cancel-container{
+    width:100%;
+    padding:3% 10%;
+  }
+  .cancel-button{
+    
+    font-size: 16px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 24px;
+      border-radius: 4px;
+      background-color: #43A810;
       height: 50px;
       width: 100%;
       max-width: 335px;
