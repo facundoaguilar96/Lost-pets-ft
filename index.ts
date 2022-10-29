@@ -1,5 +1,5 @@
-import * as cors from "cors";
-import * as express from "express";
+var cors = require("cors");
+var express = require("express");
 
 const app = express();
 const port = process.env.PORT || 3000;
