@@ -40,6 +40,11 @@ export class reportPet extends HTMLElement {
       const formPet = document.querySelector(".formPet");
       const button = document.querySelector(".button");
       const q = document.querySelector(".q") as any;
+      const cancel = document.querySelector(".cancel-button");
+
+      cancel?.addEventListener("click", () => {
+        Router.go("/");
+      });
 
       formPet?.addEventListener("submit", (e: any) => {
         e.preventDefault();

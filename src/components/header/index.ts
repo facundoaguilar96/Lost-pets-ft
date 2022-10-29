@@ -82,7 +82,10 @@ export function initHeader() {
         if (cs.token) {
           state.singOff();
           window.alert("Hasta luego!");
-          window.location.reload();
+          Router.go("/");
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         } else {
           Router.go("/ingresar");
         }
