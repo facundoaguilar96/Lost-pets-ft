@@ -252,6 +252,11 @@ export function initCard() {
     listeners() {
       let cs = state.getState();
       this.querySelector(".list").addEventListener("report", (e) => {
+        window.scroll({
+          top: 0,
+          behavior: "smooth",
+        });
+
         let id = e.detail.petId;
         let pet = cs.pet.find((e) => {
           return e.id == id;
