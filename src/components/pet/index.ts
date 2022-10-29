@@ -217,7 +217,7 @@ export function initCard() {
     text-align: center;
     display:none;
     flex-direction: column;
-    position:fixed;
+    position:absolute;
     top: 0; 
 
     background-color: #99E175;
