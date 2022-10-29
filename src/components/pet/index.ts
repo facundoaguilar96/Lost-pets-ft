@@ -159,6 +159,7 @@ export function initCard() {
     width:100%;
     Height:50px;
     margin-top:5vh;
+    margin-bottom: 5vh;
     border:solid 2px black;
     background-color:#58DB16;
   }
@@ -222,7 +223,7 @@ export function initCard() {
 
     background-color: #99E175;
     width:100vw;
-    height:100vh;
+    
   }
     `;
       this.appendChild(style);
