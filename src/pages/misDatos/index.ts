@@ -14,14 +14,14 @@ export class MisDatos extends HTMLElement {
 
   async listener() {
     const cs = state.getState();
-    const form = document.querySelector(".form");
     const boton = document.querySelector(".button");
+    const formulario = document.querySelector(".form-data");
 
     if (cs.token) {
       this.pullProfile();
     }
 
-    form?.addEventListener("submit", (e: any) => {
+    formulario?.addEventListener("submit", (e: any) => {
       e.preventDefault();
       boton?.setAttribute("disabled", "true");
       const cs = state.getState();
@@ -43,9 +43,12 @@ export class MisDatos extends HTMLElement {
             })
             .then(() => {
               window.alert("Usuario modificado con exito");
-              if (cs.token == "tokenDeRespaldoParaCambioDeContraseña") {
+              if (cs.token == process.env.P_RECOVER) {
                 state.singOff();
               } else {
+                setTimeout(() => {
+                  location.reload();
+                }, 1000);
                 Router.go("/");
               }
             });
@@ -58,8 +61,11 @@ export class MisDatos extends HTMLElement {
                 })
                 .then(() => {
                   window.alert("Usuario modificado con exito");
-                  if (cs.token == "tokenDeRespaldoParaCambioDeContraseña") {
+                  if (cs.token == process.env.P_RECOVER) {
                     state.singOff();
+                    setTimeout(() => {
+                      location.reload();
+                    }, 1000);
                   } else {
                     Router.go("/");
                   }
@@ -72,7 +78,7 @@ export class MisDatos extends HTMLElement {
                 })
                 .then(() => {
                   window.alert("Usuario modificado con exito");
-                  if (cs.token == "tokenDeRespaldoParaCambioDeContraseña") {
+                  if (cs.token == process.env.P_RECOVER) {
                     state.singOff();
                   } else {
                     Router.go("/");
@@ -111,8 +117,10 @@ export class MisDatos extends HTMLElement {
     <h1 class="h1">MIS DATOS</h1>
     <h1 class="h1-mod">MODIFICAR DATOS</h1>
 
-    <form class="form">
-      <label
+    
+      
+    <form class="form-data">
+    <label
         ><h2 class="h2">NOMBRE</h2>
         <div>
           <input
@@ -184,6 +192,12 @@ export class MisDatos extends HTMLElement {
       max-width: 335px;
   }
   
+  .form-data{
+    width: 100%;
+      max-width: 335px;
+      padding: 20px;
+  }
+
   .h2{
       margin: 0;
       font-size: 16px;
