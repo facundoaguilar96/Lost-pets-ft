@@ -8,8 +8,8 @@ export class EditPet extends HTMLElement {
   connectedCallback() {
     this.render();
 
-    const MAPBOX_TOKEN =
-      "pk.eyJ1IjoiZmFjdW5kb2FndWlsYXI5NiIsImEiOiJjbDRhcnlmMnAwZzEwM2VxcGhreGdyYnFuIn0.bw22I9uA_jhCurtQm3ri1g";
+    const MAPBOX_TOKEN = process.env.MAPBOX_T;
+
     const mapboxClient = new MapboxClient(MAPBOX_TOKEN);
 
     function initMap() {
@@ -39,6 +39,11 @@ export class EditPet extends HTMLElement {
       const cs = state.getState();
       let data = await state.getPetData(cs.petEditId);
       const formPet = document.querySelector(".formPet");
+      const cancel = document.querySelector(".cancel-button");
+
+      cancel?.addEventListener("click", () => {
+        Router.go("/");
+      });
 
       if (data as any) {
         formPet.name.value = data.name;
@@ -145,8 +150,11 @@ export class EditPet extends HTMLElement {
 
         <button class="button">enviar</button>
       </form>
+      
       <img class="profile-picture" width="5000px" />
+      <div class="cancel-container"><button class="cancel-button">cancelar</button></div>
     </div>
+    
   
         `;
     const style = document.createElement("style");
@@ -212,7 +220,7 @@ export class EditPet extends HTMLElement {
   }
   
   
-  .button{
+  .button {
       font-size: 16px;
       font-weight: 700;
       font-family: 'Poppins', sans-serif;
@@ -223,6 +231,23 @@ export class EditPet extends HTMLElement {
       width: 100%;
       max-width: 335px;
   }
+  .cancel-container{
+    width:100%;
+    padding:3% 10%;
+  }
+  .cancel-button{
+    
+    font-size: 16px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 24px;
+      border-radius: 4px;
+      background-color: #43A810;
+      height: 50px;
+      width: 100%;
+      max-width: 335px;
+  }
+  
   .profile-picture-container{
       width: 100%;
       min-height: 20vh;

@@ -24,7 +24,7 @@ export class Home extends HTMLElement {
       if (currentState.userPosition != "") {
         setTimeout(() => {
           location.reload();
-        }, 1000);
+        }, 2000);
       }
     });
   }

@@ -8,8 +8,7 @@ export class reportPet extends HTMLElement {
   connectedCallback() {
     this.render();
 
-    const MAPBOX_TOKEN =
-      "pk.eyJ1IjoiZmFjdW5kb2FndWlsYXI5NiIsImEiOiJjbDRhcnlmMnAwZzEwM2VxcGhreGdyYnFuIn0.bw22I9uA_jhCurtQm3ri1g";
+    const MAPBOX_TOKEN = process.env.MAPBOX_T;
     const mapboxClient = new MapboxClient(MAPBOX_TOKEN);
 
     function initMap() {
